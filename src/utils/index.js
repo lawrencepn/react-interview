@@ -17,5 +17,18 @@
  * @param key A string of the object property
  */
 export function countByKey (arr, key) {
+    var filterArray = {};
+    var resultArray = [];
 
+    for (var i = arr.length - 1; i > -1; i--) {
+        filterArray[arr[i][key]] = (filterArray[arr[i][key]] || 0) + 1;
+    }
+    Object.keys(filterArray).forEach((value) => {
+        resultArray.push({brand:value, count:filterArray[value]})
+    })
+
+    let sortedResult = resultArray.sort(function (a, b) {
+        return b.count - a.count;
+    })
+    return (sortedResult)
 }

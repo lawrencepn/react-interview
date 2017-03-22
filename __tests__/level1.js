@@ -2,6 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import App from '../src/App';
 import ShoeList from '../src/components/ShoeList';
+import Shoe from '../src/components/Shoe';
 import NavBar from '../src/components/NavBar';
 import Api from '../src/api';
 
@@ -73,7 +74,7 @@ describe('Shoe', () => {
   it('should render the title', () => {
     const wrapper = shallow(<Shoe {...mockShoe}/>);
     const text = wrapper.text();
-    const pattern = new RegExp(mockShoe.title);
+    const pattern = new RegExp(mockShoe.name);
     expect(pattern.test(text)).toEqual(true);
   });
 
